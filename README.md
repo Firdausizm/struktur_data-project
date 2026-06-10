@@ -9,15 +9,19 @@ Proyek ini berisi implementasi struktur data sederhana dengan fokus pada penggun
    ```powershell
    cd struktur_data-project
    ```
-3. Aktifkan virtual environment :
+3. Buat virtual environment :
    ```powershell
-   .\venv\Scripts\Activate.ps1
+   python -m venv venv
    ```
-4. Install dependency di`requirements.txt`:
+4. Aktifkan virtual environment :
+   ```powershell
+   venv\Scripts\Activate.ps1
+   ```
+5. Install dependency di `requirements.txt`:
    ```powershell
    pip install -r requirements.txt
    ```
-5. Jalankan di enrty point ini:
+6. Jalankan di entry point ini:
    ```powershell
    python main.py
    ```
