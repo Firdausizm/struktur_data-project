@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Detail buku, rating, dan komentar di BOOKSEARCH.">
+  <title>Detail Buku — BOOKSEARCH</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">BOOKSEARCH</a>
+    <div class="navbar-nav" id="navbar-nav"></div>
+  </nav>
+
+  <!-- Loading -->
+  <div class="loading-spinner" id="loading" style="padding-top:120px;">
+    <div class="spinner"></div>
+    <span class="loading-text">Memuat detail buku...</span>
+  </div>
+
+  <!-- Book Detail -->
+  <main class="book-detail hidden" id="book-detail">
+
+    <!-- Top: Cover + Info -->
+    <div class="book-detail-top">
+      <div class="book-detail-cover" id="book-cover"></div>
+      <div class="book-detail-info">
+        <h1 id="book-title"></h1>
+        <div class="book-detail-meta" id="book-meta"></div>
+        <div class="book-detail-desc" id="book-desc"></div>
+        <div class="book-detail-tags" id="book-tags"></div>
+        <div id="book-preview"></div>
+      </div>
+    </div>
+
+    <hr class="section-divider">
+
+    <!-- Rating Section -->
+    <section class="rating-section" id="rating-section">
+      <h2 class="section-title">Rating</h2>
+      <div class="rating-summary" id="rating-summary">
+        <div>
+          <span class="rating-big-number" id="rating-avg">0</span>
+          <span class="rating-out-of">/ 10</span>
+        </div>
+        <div>
+          <div class="rating-total" id="rating-total">0 penilaian</div>
+        </div>
+      </div>
+
+      <!-- Rating Input (login required) -->
+      <div id="rating-input-area"></div>
+    </section>
+
+    <hr class="section-divider">
+
+    <!-- Comments Section -->
+    <section class="comments-section" id="comments-section">
+      <h2 class="section-title">Komentar</h2>
+
+      <!-- Comment Form (login required) -->
+      <div id="comment-form-area"></div>
+
+      <!-- Comment List -->
+      <div class="comment-list" id="comment-list">
+        <div class="loading-spinner" id="comments-loading">
+          <div class="spinner"></div>
+          <span class="loading-text">Memuat komentar...</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Error State -->
+  <div class="empty-state hidden" id="error-state" style="padding-top:120px;">
+    <h2>Buku tidak ditemukan</h2>
+    <p>Buku yang Anda cari tidak tersedia atau ID-nya salah.</p>
+    <a href="/" class="btn btn-ghost mt-xl">Kembali ke Beranda</a>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/book.js"></script>
+</body>
+</html>

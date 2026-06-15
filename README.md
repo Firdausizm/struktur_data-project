@@ -26,12 +26,19 @@ Proyek ini berisi implementasi struktur data sederhana dengan fokus pada penggun
    python main.py
    ```
 
+## jalanin server
+```powershell
+uvicorn main:app --port 8000
+```
+
+Lalu buka link ini : **http://localhost:8000**
+
 
 ## Struktur Proyek
 
 - `main.py` - titik masuk aplikasi.
-- `src/` - implementasi struktur data Trie dan algoritma search engine.
-- `frontend/` - halaman frontend sederhana.
+- `Backend/` - implementasi struktur data Trie dan algoritma search engine.
+- `Frontend/` - halaman frontend web.
 
 ## Cara Berkontribusi
 

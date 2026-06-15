@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Masuk atau daftar akun BOOKSEARCH untuk memberikan rating dan komentar pada buku favorit Anda.">
+  <title>Masuk — BOOKSEARCH</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">BOOKSEARCH</a>
+    <div class="navbar-nav" id="navbar-nav"></div>
+  </nav>
+
+  <!-- Auth Card -->
+  <main class="auth-page">
+    <div class="auth-card">
+      <h1 id="auth-title">MASUK</h1>
+      <p class="auth-sub" id="auth-sub">Masuk ke akun Anda untuk melanjutkan</p>
+
+      <!-- Tabs -->
+      <div class="auth-tabs">
+        <button class="auth-tab active" data-tab="login" id="tab-login">MASUK</button>
+        <button class="auth-tab" data-tab="register" id="tab-register">DAFTAR</button>
+      </div>
+
+      <!-- Message -->
+      <div class="auth-message" id="auth-message"></div>
+
+      <!-- Login Form -->
+      <form class="auth-form active" id="form-login" autocomplete="on">
+        <div class="form-group">
+          <label class="form-label" for="login-email">Email</label>
+          <input class="form-input" type="email" id="login-email" placeholder="email@contoh.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="login-password">Password</label>
+          <input class="form-input" type="password" id="login-password" placeholder="Masukkan password" required autocomplete="current-password">
+        </div>
+        <button type="submit" class="btn btn-filled" style="width:100%;" id="btn-login">MASUK</button>
+      </form>
+
+      <!-- Register Form -->
+      <form class="auth-form" id="form-register" autocomplete="on">
+        <div class="form-group">
+          <label class="form-label" for="reg-username">Username</label>
+          <input class="form-input" type="text" id="reg-username" placeholder="Minimal 3 karakter" required minlength="3" maxlength="50" autocomplete="username">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reg-email">Email</label>
+          <input class="form-input" type="email" id="reg-email" placeholder="email@contoh.com" required autocomplete="email">
+        </div>
+        <div class="form-group">
+          <label class="form-label" for="reg-password">Password</label>
+          <input class="form-input" type="password" id="reg-password" placeholder="Minimal 6 karakter" required minlength="6" maxlength="72" autocomplete="new-password">
+        </div>
+        <button type="submit" class="btn btn-filled" style="width:100%;" id="btn-register">DAFTAR</button>
+      </form>
+
+      <div class="auth-footer" id="auth-footer">
+        Belum punya akun? <a href="#" id="switch-to-register">Daftar di sini</a>
+      </div>
+    </div>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/auth.js"></script>
+</body>
+</html>

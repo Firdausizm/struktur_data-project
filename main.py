@@ -5,6 +5,7 @@ Jalankan dengan: uvicorn main:app --reload --port 8000
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 from contextlib import asynccontextmanager
 from backend.database import init_db
 from backend.routers import auth, books, reviews
@@ -14,9 +15,9 @@ from backend.routers import auth, books, reviews
 async def lifespan(app: FastAPI):
     """Lifecycle manager: jalankan init_db saat server start."""
     init_db()
-    print("✅ Database tables initialized successfully.")
+    print("Database tables initialized successfully.")
     yield
-    print("🛑 Server shutting down.")
+    print("Server shutting down.")
 
 
 app = FastAPI(
@@ -41,7 +42,5 @@ app.include_router(books.router, prefix="/api/books", tags=["Books"])
 app.include_router(reviews.router, prefix="/api/books", tags=["Reviews"])
 
 
-@app.get("/")
-def root():
-    """Health check endpoint."""
-    return {"message": "Book Search API is running", "docs": "/docs"}
+# Mount static files untuk Frontend (harus di bawah router API)
+app.mount("/", StaticFiles(directory="Frontend", html=True), name="frontend")

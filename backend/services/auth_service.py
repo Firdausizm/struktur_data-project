@@ -3,23 +3,24 @@ Service untuk autentikasi: hashing password, JWT token, dan operasi user di data
 """
 
 import jwt
+import bcrypt
 from datetime import datetime, timedelta, timezone
-from passlib.context import CryptContext
 from backend.config import settings
 from backend.database import get_connection
-
-# Konteks hashing password menggunakan bcrypt
-pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
 
 
 def hash_password(password: str) -> str:
     """Hash password menggunakan bcrypt."""
-    return pwd_context.hash(password)
+    salt = bcrypt.gensalt()
+    return bcrypt.hashpw(password.encode('utf-8'), salt).decode('utf-8')
 
 
 def verify_password(plain_password: str, hashed_password: str) -> bool:
     """Verifikasi password terhadap hash bcrypt."""
-    return pwd_context.verify(plain_password, hashed_password)
+    try:
+        return bcrypt.checkpw(plain_password.encode('utf-8'), hashed_password.encode('utf-8'))
+    except ValueError:
+        return False
 
 
 def create_access_token(user_id: int, username: str) -> str:

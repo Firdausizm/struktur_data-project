@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Hasil pencarian buku di BOOKSEARCH. Temukan buku berdasarkan judul, penulis, atau topik.">
+  <title>Hasil Pencarian — BOOKSEARCH</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="/" class="navbar-brand">BOOKSEARCH</a>
+    <div class="navbar-nav" id="navbar-nav"></div>
+  </nav>
+
+  <!-- Results Header with Search -->
+  <div class="results-header">
+    <div class="search-container" id="search-container" style="max-width:100%; margin-bottom: var(--sp-xl);">
+      <form id="search-form" autocomplete="off">
+        <input
+          type="text"
+          class="search-input"
+          id="search-input"
+          placeholder="Cari judul buku, penulis, atau topik..."
+          required
+          aria-label="Cari buku"
+        >
+        <button type="submit" class="search-btn" id="search-btn">CARI</button>
+      </form>
+      <div class="autocomplete-dropdown" id="autocomplete-dropdown"></div>
+    </div>
+    <p class="results-query" id="results-query"></p>
+  </div>
+
+  <!-- Book Grid -->
+  <div class="book-grid" id="book-grid">
+    <!-- Cards rendered by JS -->
+  </div>
+
+  <!-- Loading -->
+  <div class="loading-spinner" id="loading" style="display:none;">
+    <div class="spinner"></div>
+    <span class="loading-text">Mencari buku...</span>
+  </div>
+
+  <!-- Empty State -->
+  <div class="empty-state hidden" id="empty-state">
+    <h2>Tidak ada hasil</h2>
+    <p>Coba gunakan kata kunci yang berbeda</p>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/results.js"></script>
+</body>
+</html>
