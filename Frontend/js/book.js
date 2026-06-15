@@ -43,9 +43,9 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const coverContainer = document.getElementById('book-cover');
     if (book.thumbnail) {
-      // Get higher resolution image if available by replacing zoom=1 with zoom=2 or removing it
-      const highResThumb = book.thumbnail.replace('zoom=1', 'zoom=2');
-      coverContainer.innerHTML = `<img src="${escapeHtml(highResThumb)}" alt="${escapeHtml(book.title)}">`;
+      // Ubah http ke https agar tidak terkena blokir mixed-content oleh browser, dan gunakan thumbnail bawaan
+      const secureThumb = book.thumbnail.replace('http:', 'https:');
+      coverContainer.innerHTML = `<img src="${escapeHtml(secureThumb)}" alt="${escapeHtml(book.title)}">`;
     } else {
       coverContainer.innerHTML = '<span class="book-card-no-cover">NO COVER AVAILABLE</span>';
     }
