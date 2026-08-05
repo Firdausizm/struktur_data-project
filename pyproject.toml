@@ -1,0 +1,42 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "xbook"
+version = "1.0.0"
+description = "pencarian buku dengan Trie, PostgreSQL, dan Google Books API"
+readme = "README.md"
+requires-python = ">=3.10,<3.13"
+authors = [
+  { name = "Alif" }
+]
+dependencies = [
+  "fastapi<=0.111.0",
+  "uvicorn<=0.30.1",
+  "python-dotenv<=1.2.2",
+  "requests<=2.34.2",
+  "psycopg2-binary<=2.9.9",
+  "pydantic<=2.7.4",
+  "pydantic-settings<=2.3.1",
+  "PyJWT<=2.8.0",
+  "passlib[bcrypt]<=1.7.4",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.0.0",
+  "pytest-asyncio>=0.23.0",
+  "httpx>=0.27.0",
+  "ruff>=0.6.0",
+]
+
+[tool.setuptools]
+include-package-data = true
+
+[tool.setuptools.packages.find]
+include = ["backend*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+python_files = ["test_*.py"]

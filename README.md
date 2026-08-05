@@ -1,4 +1,4 @@
-# Struktur Data Project
+# XBOOK
 
 Proyek ini berisi implementasi struktur data sederhana dengan fokus pada penggunaan Trie pada mesin pencari buku. API di ambil dari google books, jadi pastikan utuk memiliki tokenya agar dapat menjalankan web ini.
 

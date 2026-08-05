@@ -1,9 +1,3 @@
-"""
-Implementasi struktur data Trie untuk autocomplete pencarian buku.
-Dibuat 100% tanpa library tambahan — hanya menggunakan tipe bawaan Python.
-"""
-
-
 class TrieNode:
     """Node dalam struktur data Trie."""
 
